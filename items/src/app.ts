@@ -4,6 +4,9 @@ import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@tb-marketplace/common';
 
+import { showItemRouter } from './routes/show';
+import { createItemRouter } from './routes/new';
+
 const app = express();
 app.use(json());
 app.set('trust proxy', true); // Ingress NGINX
@@ -14,10 +17,11 @@ app.use(
   }),
 );
 app.use(currentUser);
+
 app.use(createItemRouter);
 app.use(showItemRouter);
-app.use(indexItemRouter);
-app.use(updateItemRouter);
+// app.use(indexItemRouter);
+// app.use(updateItemRouter);
 
 // Catch all route
 app.all('*', async (req, res) => {
