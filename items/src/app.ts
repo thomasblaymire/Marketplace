@@ -6,6 +6,7 @@ import { errorHandler, NotFoundError, currentUser } from '@tb-marketplace/common
 
 import { showItemRouter } from './routes/show';
 import { createItemRouter } from './routes/new';
+import { indexItemRouter } from './routes/index';
 
 const app = express();
 app.use(json());
@@ -20,7 +21,7 @@ app.use(currentUser);
 
 app.use(createItemRouter);
 app.use(showItemRouter);
-// app.use(indexItemRouter);
+app.use(indexItemRouter);
 // app.use(updateItemRouter);
 
 // Catch all route
