@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: thomasblaymire/auth
+          image: thomasblaymire/marketplace-auth
           env:
             - name: JWT_KEY
               valueFrom:
