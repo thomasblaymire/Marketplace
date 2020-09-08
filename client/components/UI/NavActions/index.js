@@ -7,7 +7,7 @@ import basketIcon from '../../../public/static/basket.svg';
 const NavActions = () => {
   const onSavedClick = () => Router.push('/saved');
   const onBasketClick = () => console.log('Basket Clicked');
-  const onAccountClick = () => console.log('Account Click');
+  const onAccountClick = () => Router.push('/signin');
 
   const navActions = [
     {

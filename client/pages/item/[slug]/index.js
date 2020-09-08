@@ -9,7 +9,7 @@ const ItemPage = () => {
 
   useEffect(() => {
     if (isRouterReady(router)) {
-      fetch(`/api/items/${'5f57833e36923c0023a15c10'}`)
+      fetch(`/api/items/${'5f5784e4cfecc6002445ec34'}`)
         .then((res) => res.json())
         .then((data) => setItem(data))
         .catch((err) => console.log(err));

@@ -34,7 +34,7 @@ export const StyledButton = styled.button`
   &:focus {
     text-decoration: none;
     outline: 0;
-    background: ${({ outline }) => (outline ? '#525252' : ' #1a9c65')};
+
     box-shadow: 0;
     color: white;
   }

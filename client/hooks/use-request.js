@@ -18,14 +18,11 @@ const doRequest = ({ url, method, body, onSuccess }) => {
       return response.data;
     } catch (err) {
       setErrors(
-        <div className="alert alert-danger">
-          <h4>Opps...</h4>
-          <ul className="my-0">
-            {err.response.data.errors.map((err) => (
-              <li key={err.message}>{err.message}</li>
-            ))}
-          </ul>
-        </div>,
+        <ul className="my-0">
+          {err.response.data.errors.map((err) => (
+            <span key={err.message}>{err.message}</span>
+          ))}
+        </ul>,
       );
     } finally {
       setLoading(false);

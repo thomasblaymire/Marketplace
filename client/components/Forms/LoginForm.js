@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Button from '../Button';
 import useRequest from '../../hooks/use-request';
 import { Formik, Field } from 'formik';
-import { FormWrapper, FormError, StyledText } from './styled';
+import { FormWrapper, FormError, FieldError, StyledText } from './styled';
 
 const LoginForm = () => {
   const [formValues, setFormValues] = useState(''); // TODO: Improve this with Formik Hooks
@@ -26,7 +26,7 @@ const LoginForm = () => {
     doRequest();
   };
 
-  const { doRequest, loading } = useRequest({
+  const { doRequest, loading, errors: apiError } = useRequest({
     url: '/api/users/signin',
     method: 'post',
     body: {
@@ -40,22 +40,23 @@ const LoginForm = () => {
       {({ isSubmitting, handleChange, errors, touched, values }) => (
         <FormWrapper>
           <fieldset disabled={loading} aria-busy={loading}>
+            <h3 className="form-title">Sign In</h3>
+            {apiError && <FormError>{apiError}</FormError>}
+
             <label htmlFor="email">
               <StyledText>Email:</StyledText>
               <Field type="text" name="email" placeholder="yourname@example.com" onChange={handleChange} />
-              {errors.email && touched.email ? <FormError>{errors.email}</FormError> : null}
+              {errors.email && touched.email ? <FieldError>{errors.email}</FieldError> : null}
             </label>
             <label htmlFor="password">
               <StyledText>Password:</StyledText>
               <Field type="password" name="password" onChange={handleChange} placeholder="Password" />
-              {errors.password && touched.password ? <FormError>{errors.password}</FormError> : null}
+              {errors.password && touched.password ? <FieldError>{errors.password}</FieldError> : null}
             </label>
             <Button size="lg" disabled={isSubmitting} loading={isSubmitting}>
               Log In
             </Button>
           </fieldset>
-
-          {/* {apiError && <FormError error={apiError} />} */}
 
           <div className="account-actions">
             <Link href="/">

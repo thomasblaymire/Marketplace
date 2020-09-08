@@ -23,7 +23,6 @@ export const FormWrapper = styled(Form)`
     padding: 0.5rem;
     font-size: 1rem;
     border: 2px solid #eff3f5;
-    border-radius: 5px;
     &:focus {
       outline: 0;
       border-color: #2196f3;
@@ -38,12 +37,11 @@ export const FormWrapper = styled(Form)`
     width: 100%;
     background: #2d2d2d;
     margin-top: 2rem;
-    border-radius: 5px;
     color: white;
     border: 0;
     font-size: 1rem;
     font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    padding: 0.6rem 1.2rem;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -65,9 +63,11 @@ export const FormWrapper = styled(Form)`
   }
   .form-title {
     padding-bottom: 1.5rem;
-    font-size: 1.4rem;
-    color: #1d2c4c;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #222222;
   }
 
   .account-actions {
@@ -78,10 +78,33 @@ export const FormWrapper = styled(Form)`
   }
 `;
 
-export const FormError = styled.span`
-  color: red;
+export const FormError = styled.div`
   font-weight: 400;
   font-size: 0.8rem;
+  padding-bottom: 2rem;
+  text-align: left;
+  background: #fae7ec;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 14px;
+
+  span {
+    padding-right: 5px;
+    display: block;
+  }
+
+  ul {
+    padding: 0;
+  }
+`;
+
+export const FieldError = styled.div`
+  font-size: 0.8rem;
+  color: red;
+  padding-top: 5px;
+  padding-left: 1px;
+  font-weight: 400;
+  text-transform: capitalize;
 `;
 
 export const StyledText = styled.span`
