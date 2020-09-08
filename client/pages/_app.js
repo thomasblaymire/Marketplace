@@ -3,10 +3,9 @@ import buildClient from '../api/build-client';
 import Header from '../components/Header';
 
 // Wrapper around the component on the screen
-const AppComponent = ({ Component, pageProps, currentUser }) => {
+const AppComponent = ({ Component, pageProps }) => {
   return (
     <div>
-      <Header currentUser={currentUser} />
       <Component {...pageProps} />
     </div>
   );

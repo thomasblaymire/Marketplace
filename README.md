@@ -5,18 +5,36 @@
 
 <h4 align="center">An in-progress Microservice application that I am currently building using React, Node, Express, MongoDB, Docker & Kubernetes.</h4>
 
-## Key Features
+## Inspiration
 
-- HTML5
-- CSS3
-- React
-- Next.JS
+The Marketplace follows as ASOS style implementation, with similar styles for layout, type and icons.
+
+## Frontend Features
+
+- React (NextJS)
+- Hooks
+- Styled Components
+- Formik
+- Yup
 - SSR
+
+## Backend Features
+
 - Express
+- Express Validator
 - NodeJS
 - MongoDB
+- JWT
+- Typescript
+- Common NPM Package (Events, Middleware, Errors)
 
-## Future Enhancements / Features 
+## Microservice Setup
+
+- Docker
+- Kubernetes
+- Ingress NGINX
+- Skaffold
+
+## Future Enhancements / Features
 
 TBC
-

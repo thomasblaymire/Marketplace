@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
 
-export default ({ url, method, body, onSuccess }) => {
+const doRequest = ({ url, method, body, onSuccess }) => {
   const [errors, setErrors] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const doRequest = async () => {
     try {
       setErrors(null);
+      setLoading(true);
       const response = await axios[method](url, body);
 
       if (onSuccess) {
@@ -25,7 +27,11 @@ export default ({ url, method, body, onSuccess }) => {
           </ul>
         </div>,
       );
+    } finally {
+      setLoading(false);
     }
   };
-  return { doRequest, errors };
+  return { doRequest, errors, loading };
 };
+
+export default doRequest;

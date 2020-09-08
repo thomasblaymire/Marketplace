@@ -2,7 +2,7 @@ const withCSS = require('@zeit/next-css');
 const withSass = require('@zeit/next-sass');
 
 const next_config = {
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.plugins = config.plugins || [];
     config.watchOptions.poll = 300;
 

@@ -5,3 +5,11 @@ export const StyledHeader = styled.header`
   height: 60px;
   width: 100%;
 `;
+
+export const StyledHeaderContent = styled.div`
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
