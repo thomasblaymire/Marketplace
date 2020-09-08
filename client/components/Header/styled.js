@@ -9,7 +9,12 @@ export const StyledHeader = styled.header`
 export const StyledHeaderContent = styled.div`
   max-width: 1300px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const StyledLogoBlock = styled.div`
+  display: flex;
 `;

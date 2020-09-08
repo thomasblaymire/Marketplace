@@ -4,6 +4,7 @@ export const StyledProducts = styled.div`
   max-width: 1300px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  padding: 0 1rem;
   grid-gap: 20px;
   margin: 0 auto;
   margin-top: 2rem;

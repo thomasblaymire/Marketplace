@@ -1,13 +1,18 @@
-import { StyledHeader, StyledHeaderContent } from './styled';
+import { StyledHeader, StyledHeaderContent, StyledLogoBlock } from './styled';
 import Navigation from '../Navigation';
 import NavActions from '../UI/NavActions';
 import Logo from '../UI/Logo';
+import BurgerMenu from '../UI/BurgerMenu';
 
 const Header = ({ currentUser }) => (
   <>
     <StyledHeader>
       <StyledHeaderContent>
-        <Logo />
+        <StyledLogoBlock>
+          <BurgerMenu />
+          <Logo />
+        </StyledLogoBlock>
+
         <NavActions />
       </StyledHeaderContent>
     </StyledHeader>

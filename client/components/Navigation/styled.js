@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const StyledWrapper = styled.div`
   background-color: #525050;
   height: 50px;
+  display: none;
+
+  @media (min-width: 992px) {
+    display: block;
+  }
 `;
 
 export const StyledNav = styled.nav`
@@ -10,6 +15,7 @@ export const StyledNav = styled.nav`
   display: flex;
   align-items: center;
   max-width: 1300px;
+  padding: 0 1rem;
   margin: 0 auto;
 `;
 

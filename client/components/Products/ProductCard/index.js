@@ -4,7 +4,7 @@ import Link from 'next/link';
 const ProductCard = ({ product: { id, title, image, price } }) => {
   const formattedTitle = title.replace(/ +/g, '-').toLowerCase();
   return (
-    <Link href={`/item/${formattedTitle}?search=${id}`}>
+    <Link href="/item/[slug]" as={`/item/${formattedTitle}?id=${id}`}>
       <StyledCard>
         <img src={image} alt="Product Image" />
         <StyledCardDetails>

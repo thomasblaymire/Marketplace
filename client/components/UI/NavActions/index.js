@@ -33,7 +33,7 @@ const NavActions = () => {
   return (
     <StyledNavActions>
       {navActions.map((action) => (
-        <StyledNavAction onClick={action.onClick}>
+        <StyledNavAction key={action.id} onClick={action.onClick}>
           <StyledNavIcon>
             <img src={action.icon} alt={action.title} />
           </StyledNavIcon>
