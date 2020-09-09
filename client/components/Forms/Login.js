@@ -1,14 +1,14 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import { useContext } from 'react';
 import Router from 'next/router';
 import Link from 'next/link';
 import Button from '../Button';
-import useRequest from '../../hooks/use-request';
+import { AuthContext } from '../../context/Auth';
 import { Formik, Field } from 'formik';
 import { FormWrapper, FormError, FieldError, StyledText } from './styled';
 
-const LoginForm = () => {
-  const [formValues, setFormValues] = useState(''); // TODO: Improve this with Formik Hooks
+const Login = () => {
+  const { signIn, error: apiError, user } = useContext(AuthContext);
 
   const initialValues = {
     email: '',
@@ -21,25 +21,15 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (values) => {
-    setFormValues(values);
-    console.log(values);
-    doRequest();
+    signIn(values);
+    if (user !== null) Router.push('/');
   };
-
-  const { doRequest, loading, errors: apiError } = useRequest({
-    url: '/api/users/signin',
-    method: 'post',
-    body: {
-      ...formValues,
-    },
-    onSuccess: () => Router.push('/'),
-  });
 
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-      {({ isSubmitting, handleChange, errors, touched, values }) => (
+      {({ isSubmitting, handleChange, errors, touched }) => (
         <FormWrapper>
-          <fieldset disabled={loading} aria-busy={loading}>
+          <fieldset disabled={isSubmitting} aria-busy={isSubmitting}>
             <h3 className="form-title">Sign In</h3>
             {apiError && <FormError>{apiError}</FormError>}
 
@@ -74,4 +64,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Login;

@@ -1,18 +1,20 @@
 import mongoose from 'mongoose';
 
 interface ItemAttrs {
-  title: string;
+  name: string;
   price: number;
   description: string;
   image: string;
+  files: string[];
   userId: string;
 }
 
 interface ItemDoc extends mongoose.Document {
-  title: string;
+  name: string;
   price: number;
   description: string;
   image: string;
+  files: string[];
   userId: string;
 }
 
@@ -22,7 +24,7 @@ interface ItemModel extends mongoose.Model<ItemDoc> {
 
 const itemSchema = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
     },
@@ -36,6 +38,10 @@ const itemSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+      required: true,
+    },
+    files: {
+      type: Array,
       required: true,
     },
   },
