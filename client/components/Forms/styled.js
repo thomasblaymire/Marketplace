@@ -10,7 +10,7 @@ export const FormWrapper = styled(Form)`
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 600;
-  max-width: 650px;
+  max-width: 600px;
   label {
     display: block;
     margin-bottom: 1rem;

@@ -25,6 +25,7 @@ export const StyledMenu = styled.div`
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-left: -0.5rem;
   }
 
   li {
@@ -43,14 +44,6 @@ export const StyledMenu = styled.div`
       color: #2d2d2d;
       background-color: #eee;
       font-weight: 400;
-    }
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
     }
   }
 `;

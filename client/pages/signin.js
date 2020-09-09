@@ -1,4 +1,4 @@
-import { StyledSignin } from '../styled/SigninStyles';
+import { StyledSignin } from '../styled/AuthStyles';
 import Login from '../components/Forms/Login';
 
 const Signin = () => (

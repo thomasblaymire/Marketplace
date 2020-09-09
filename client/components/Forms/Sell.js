@@ -7,6 +7,7 @@ import FileUpload from './Fields/FileUpload';
 
 const Sell = () => {
   const [files, setFiles] = useState([]);
+  const [fileUrl, setFileUrl] = useState('');
 
   const initialValues = {
     name: '',
@@ -27,7 +28,7 @@ const Sell = () => {
   const onSubmit = async (values) => {
     const data = {
       ...values,
-      files,
+      files: fileUrl,
     };
 
     await axios.post(
@@ -48,7 +49,7 @@ const Sell = () => {
             <h3 className="form-title">Create Advert</h3>
             {apiError && <FormError>{apiError}</FormError>}
 
-            <FileUpload files={files} setFiles={setFiles} />
+            <FileUpload files={files} setFiles={setFiles} setFileUrl={setFileUrl} />
 
             <label htmlFor="name">
               <StyledText>Item Name:</StyledText>

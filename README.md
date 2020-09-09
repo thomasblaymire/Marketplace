@@ -9,7 +9,7 @@
 
 The Marketplace follows as ASOS style implementation, with similar styles for layout, type and icons.
 
-## Frontend Features
+## Frontend Tech
 
 - React (NextJS)
 - Hooks
@@ -18,7 +18,7 @@ The Marketplace follows as ASOS style implementation, with similar styles for la
 - Yup
 - SSR
 
-## Backend Features
+## Backend Tech
 
 - Express
 - Express Validator

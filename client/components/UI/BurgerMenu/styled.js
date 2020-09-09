@@ -6,6 +6,7 @@ export const StyledBurgerMenu = styled.div`
   width: 22px;
   padding-right: 18px;
   box-sizing: content-box;
+  cursor: pointer;
   @media (min-width: 992px) {
     display: none;
   }

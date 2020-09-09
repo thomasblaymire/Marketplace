@@ -1,25 +1,41 @@
-// Import React FilePond
 import { FilePond, registerPlugin } from 'react-filepond';
-
-// Import FilePond styles
+import { StyledImageUpload } from './styled';
 import 'filepond/dist/filepond.min.css';
-
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
-// Register the plugins
 registerPlugin(FilePondPluginImagePreview);
 
-// Our app
-const FileUpload = ({ files, setFiles }) => (
-  <FilePond
-    files={files}
-    onupdatefiles={setFiles}
-    allowMultiple={true}
-    maxFiles={5}
-    name="files"
-    labelIdle='Drag & Drop your files or <span class="filepond--label-action">Browse</span>'
-  />
-);
+const FileUpload = ({ files, setFiles }) => {
+  const uploadFile = async (e) => {
+    const data = new FormData();
+    data.append('file', e[0].file);
+    data.append('upload_preset', 'marketplace');
+
+    // const res = await fetch('https://api.cloudinary.com/v1_1/dtnfsayor/image/upload', {
+    //   method: 'POST',
+    //   body: data,
+    // });
+
+    // const fileId = await res.json();
+
+    // setFiles({
+    //   image: fileId.secure_url,
+    // });
+  };
+
+  return (
+    <StyledImageUpload>
+      <FilePond
+        onupdatefiles={uploadFile}
+        files={files}
+        allowMultiple={true}
+        maxFiles={6}
+        name="files"
+        labelIdle='Drag & Drop your photos or <span class="filepond--label-action">Browse</span>'
+      />
+    </StyledImageUpload>
+  );
+};
 
 export default FileUpload;

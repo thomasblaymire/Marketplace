@@ -1,23 +1,31 @@
+import { useState } from 'react';
 import { StyledHeader, StyledHeaderContent, StyledLogoBlock } from './styled';
 import Navigation from '../Navigation';
 import NavActions from '../UI/NavActions';
 import Logo from '../UI/Logo';
 import BurgerMenu from '../UI/BurgerMenu';
+import Sidebar from '../UI/Sidebar';
 
-const Header = ({ currentUser }) => (
-  <>
-    <StyledHeader>
-      <StyledHeaderContent>
-        <StyledLogoBlock>
-          <BurgerMenu />
-          <Logo />
-        </StyledLogoBlock>
+const Header = () => {
+  const [sidebarOpen, setSidebarOpen] = useState();
+  const toggleSidebar = () => setSidebarOpen((sidebarOpen) => !sidebarOpen);
 
-        <NavActions />
-      </StyledHeaderContent>
-    </StyledHeader>
-    <Navigation />
-  </>
-);
+  return (
+    <>
+      <StyledHeader>
+        <StyledHeaderContent>
+          <StyledLogoBlock>
+            <BurgerMenu toggleSidebar={toggleSidebar} />
+            <Logo />
+          </StyledLogoBlock>
+
+          <NavActions />
+        </StyledHeaderContent>
+      </StyledHeader>
+      {sidebarOpen && <Sidebar />}
+      <Navigation />
+    </>
+  );
+};
 
 export default Header;

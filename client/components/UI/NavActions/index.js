@@ -1,44 +1,63 @@
+import { useState } from 'react';
+import {
+  StyledNavActions,
+  StyledNavAction,
+  StyledAdminMenu,
+  StyledLogin,
+  StyledLoginSpacer,
+  StyledMenuList,
+} from './styled';
 import Router from 'next/router';
-import { StyledNavActions, StyledNavAction, StyledNavIcon } from './styled';
+import Link from 'next/link';
 import accountIcon from '../../../public/static/person.svg';
 import savedIcon from '../../../public/static/download.svg';
 import basketIcon from '../../../public/static/basket.svg';
 
 const NavActions = () => {
+  const [adminMenu, setAdminMenu] = useState(false);
   const onSavedClick = () => Router.push('/saved');
   const onBasketClick = () => console.log('Basket Clicked');
-  const onAccountClick = () => Router.push('/signin');
 
-  const navActions = [
-    {
-      id: 1,
-      icon: accountIcon,
-      onClick: onAccountClick,
-      title: 'Account',
-    },
-    {
-      id: 2,
-      icon: savedIcon,
-      onClick: onSavedClick,
-      title: 'Saved',
-    },
-    {
-      id: 3,
-      icon: basketIcon,
-      onClick: onBasketClick,
-      title: 'Basket',
-    },
-  ];
+  console.log(adminMenu);
+
+  const toggleAdminMenu = () => setAdminMenu((adminMenu) => !adminMenu);
 
   return (
     <StyledNavActions>
-      {navActions.map((action) => (
-        <StyledNavAction key={action.id} onClick={action.onClick}>
-          <StyledNavIcon>
-            <img src={action.icon} alt={action.title} />
-          </StyledNavIcon>
-        </StyledNavAction>
-      ))}
+      <StyledNavAction onMouseEnter={toggleAdminMenu} onMouseLeave={toggleAdminMenu}>
+        <img src={accountIcon} alt="Account" />
+        {adminMenu && (
+          <StyledAdminMenu>
+            <StyledLogin>
+              <Link href="/signup">
+                <a>Sign up</a>
+              </Link>
+              <StyledLoginSpacer />
+              <Link href="signin">
+                <a>Sign in</a>
+              </Link>
+            </StyledLogin>
+            <StyledMenuList>
+              <li>
+                <Link href="/sell">
+                  <a>Sell Products</a>
+                </Link>
+              </li>
+              <li>My Account</li>
+              <li>My Preferences</li>
+              <li>Manage Returns</li>
+            </StyledMenuList>
+          </StyledAdminMenu>
+        )}
+      </StyledNavAction>
+
+      <StyledNavAction onClick={onSavedClick}>
+        <img src={savedIcon} alt="Saved" />
+      </StyledNavAction>
+
+      <StyledNavAction onClick={onBasketClick}>
+        <img src={basketIcon} alt="Basket" />
+      </StyledNavAction>
     </StyledNavActions>
   );
 };
