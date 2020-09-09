@@ -5,6 +5,7 @@ import NavActions from '../UI/NavActions';
 import Logo from '../UI/Logo';
 import BurgerMenu from '../UI/BurgerMenu';
 import Sidebar from '../UI/Sidebar';
+import Search from '../Forms/Search';
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState();
@@ -18,6 +19,8 @@ const Header = () => {
             <BurgerMenu toggleSidebar={toggleSidebar} />
             <Logo />
           </StyledLogoBlock>
+
+          <Search />
 
           <NavActions />
         </StyledHeaderContent>
